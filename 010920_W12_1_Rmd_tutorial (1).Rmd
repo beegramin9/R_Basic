@@ -1,0 +1,90 @@
+---
+title: "R markdown tutorial"
+output: html_document#pdf_document
+---
+
+## Basic markdown rules
+
+1. Header 
+
+# Header 1
+## Header 2
+### Header 3
+#### Header 4
+##### Header 5
+
+2. Emphasizing text
+
+    _This_ is __a__ *test* **code**.
+
+3. Link
+  - [Inha Univ.](https://www.inha.ac.kr/ 'Inha')
+  * [KSS](http://www.kss.or.kr/ 'KSA')
+  
+
+4. Table
+   - Basic Table
+
+    Col 1  | Col 2 | Col 3
+    --- | --- | ---
+    1 | 2 | 3
+    4 | 5 | 6
+
+Col 1| Col 2|Col 3
+---:|:---:|:---
+1 | 2 | 3
+4 | 5 | 6
+
+   - Table with `kable`
+   
+```{r}
+a = matrix(1:6,ncol=3,byrow=T)
+b = data.frame(a)
+rownames(b) = c('First','Second')
+knitr::kable(b)
+```
+
+
+5. Code
+
+    - R code 1
+```{r include=T, eval=TRUE, echo=TRUE}
+print('This is a test code.')
+x = 1:10
+mean(x)
+```
+
+    - R code 2
+```{r include=F, eval=T, echo=TRUE}
+print('This is a test code.')
+x = 1:10
+plot(x,type='l')
+```
+
+    - R code 3
+```{r include=F, eval=T, echo=F}
+print('This is a test code.')
+x = 1:10
+plot(x,type='l')
+```
+
+
+```{r}
+x = 'abc'
+y = list(x)
+print(x)
+print(y)
+```
+
+
+6. Equations
+
+   - This is an equation $y = x \beta + \epsilon$.
+
+   - New Line (middle)  
+   
+   $$ \hat{\beta} = ({\bf X}^T {\bf X})^{-1} {\bf X}^T {\bf y}$$
+   
+   
+
+
